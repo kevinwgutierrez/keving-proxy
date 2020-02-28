@@ -7,6 +7,7 @@ export let options = {
   duration: "5m0s"
 };
 
+// add ip
 export default function() {
   let randomNum = Math.floor(Math.random() * 1000000);
   let res = http.post(
