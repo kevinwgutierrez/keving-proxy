@@ -1,0 +1,95 @@
+const express = require("express");
+const app = express();
+const path = require("path");
+const axios = require("axios");
+
+// get request to get all bookings by listing from the proxy
+app.get("/api/listings/:listing_id/bookings", (req, res) => {
+  axios
+    .get(
+      "http://localhost:3000/api/listings/" +
+        req.params.listing_id +
+        "/bookings"
+    )
+    .then(innerRes => {
+      res.writeHead(200);
+      res.write(JSON.stringify(innerRes.data));
+      res.end();
+    })
+    .catch(err => {
+      res.writeHead(500);
+      res.end();
+      console.log(err);
+    });
+});
+
+// post request to add booking by listing from the proxy
+
+app.post("/api/listings/:listing_id/add_booking", (req, res) => {
+  console.log(req.params.booking_id);
+  axios
+    .post(
+      "http://localhost:3000/api/listings/" +
+        req.params.listing_id +
+        "/add_booking"
+    )
+    .then(innerRes => {
+      res.writeHead(200);
+      res.write(JSON.stringify(innerRes.data));
+      res.end();
+    })
+    .catch(err => {
+      res.writeHead(500);
+      res.end();
+      console.log(err);
+    });
+});
+
+// app.get("/api/:id", (req, res) => {
+//   axios
+//     .get("http://localhost:1337" + req.url)
+//     .then(innerRes => {
+//       res.writeHead(200);
+//       console.log(innerRes.data);
+//       res.write(JSON.stringify(innerRes.data));
+//       res.end();
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// });
+
+// app.get("/v1/api/:accommodationId/reviews", (req, res) => {
+//   axios
+//     .get("http://localhost:2020" + req.url)
+//     .then(innerRes => {
+//       res.writeHead(200);
+//       res.write(JSON.stringify(innerRes.data));
+//       res.end();
+//     })
+//     .catch(err => {
+//       res.writeHead(500);
+//       res.end();
+//       console.log(err);
+//     });
+// });
+
+// app.get("/getHomes", (req, res) => {
+//   axios
+//     .get("http://localhost:4321" + req.url)
+//     .then(innerRes => {
+//       res.writeHead(200);
+//       res.write(JSON.stringify(innerRes.data));
+//       res.end();
+//     })
+//     .catch(err => {
+//       res.writeHead(500);
+//       res.end();
+//       console.log(err);
+//     });
+// });
+
+app.use(express.static(path.join(__dirname, "../public")));
+app.listen(1234, () => {
+  console.log("listening on port 1234");
+});
