@@ -27,7 +27,6 @@ app.get("/api/listings/:listing_id/bookings", (req, res) => {
 // post request to add booking by listing from the proxy
 
 app.post("/api/listings/:listing_id/add_booking", (req, res) => {
-  console.log(req.params.booking_id);
   axios
     .post(
       "http://13.57.35.247:3000/api/listings/" +
@@ -36,7 +35,7 @@ app.post("/api/listings/:listing_id/add_booking", (req, res) => {
     )
     .then(innerRes => {
       res.writeHead(200);
-      res.write(JSON.stringify(innerRes.data));
+
       res.end();
     })
     .catch(err => {
