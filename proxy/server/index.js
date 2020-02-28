@@ -8,12 +8,12 @@ const axios = require("axios");
 app.get("/api/listings/:listing_id/bookings", (req, res) => {
   axios
     .get(
-      "http://localhost:3000/api/listings/" +
+      "http://13.57.35.247:3000/api/listings/" +
         req.params.listing_id +
         "/bookings"
     )
     .then(innerRes => {
-      res.writeHead(200);
+      res.sendStatus(200);
       res.write(JSON.stringify(innerRes.data));
       res.end();
     })
@@ -30,7 +30,7 @@ app.post("/api/listings/:listing_id/add_booking", (req, res) => {
   console.log(req.params.booking_id);
   axios
     .post(
-      "http://localhost:3000/api/listings/" +
+      "http://13.57.35.247:3000/api/listings/" +
         req.params.listing_id +
         "/add_booking"
     )
