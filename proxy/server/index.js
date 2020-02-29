@@ -5,10 +5,9 @@ const path = require("path");
 const axios = require("axios");
 const fs = require("fs");
 
-app.get("/loaderio-5fa11f1e57f357dad54d903ac76b9d44"),
-  (req, res) => {
-    res.sendFile("./loaderio-5fa11f1e57f357dad54d903ac76b9d44.txt");
-  };
+app.get("/loaderio-5fa11f1e57f357dad54d903ac76b9d44", (req, res) => {
+  res.send("./loaderio-5fa11f1e57f357dad54d903ac76b9d44.txt");
+});
 
 // get request to get all bookings by listing from the proxy
 app.get("/api/listings/:listing_id/bookings", (req, res) => {
