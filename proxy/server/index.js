@@ -6,7 +6,9 @@ const axios = require("axios");
 const fs = require("fs");
 
 app.get("/loaderio-180421a2c2c8857a757215a124fb251d/", (req, res) => {
-  res.sendFile("./loaderio-180421a2c2c8857a757215a124fb251d.txt");
+  res.sendFile(
+    path.join(__dirname, "./loaderio-180421a2c2c8857a757215a124fb251d.txt")
+  );
 });
 
 // get request to get all bookings by listing from the proxy
