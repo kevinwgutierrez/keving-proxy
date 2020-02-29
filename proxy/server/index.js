@@ -15,7 +15,7 @@ app.get("/loaderio-180421a2c2c8857a757215a124fb251d/", (req, res) => {
 app.get("/api/listings/:listing_id/bookings", (req, res) => {
   axios
     .get(
-      "http://13.57.35.247:3000/api/listings/" +
+      "http://52.53.174.185:3000/api/listings/" +
         req.params.listing_id +
         "/bookings"
     )
@@ -36,7 +36,7 @@ app.get("/api/listings/:listing_id/bookings", (req, res) => {
 app.post("/api/listings/:listing_id/add_booking", (req, res) => {
   axios
     .post(
-      "http://13.57.35.247:3000/api/listings/" +
+      "http://52.53.174.185:3000/api/listings/" +
         req.params.listing_id +
         "/add_booking"
     )
