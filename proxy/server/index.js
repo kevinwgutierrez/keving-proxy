@@ -36,7 +36,7 @@ app.get("/api/listings/:listing_id/bookings", (req, res) => {
 app.post("/api/listings/:listing_id/add_booking", (req, res) => {
   axios
     .post(
-      "http://54.193.13.246:3000/api/listings/" +
+      "http://54.193.13.246:80/api/listings/" +
         req.params.listing_id +
         "/add_booking"
     )
