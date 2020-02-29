@@ -5,7 +5,7 @@ const path = require("path");
 const axios = require("axios");
 const fs = require("fs");
 
-app.get("/loaderio-5fa11f1e57f357dad54d903ac76b9d44/"),
+app.get("/loaderio-5fa11f1e57f357dad54d903ac76b9d44"),
   (req, res) => {
     res.sendFile("./loaderio-5fa11f1e57f357dad54d903ac76b9d44.txt");
   };
@@ -95,7 +95,6 @@ app.post("/api/listings/:listing_id/add_booking", (req, res) => {
 //     });
 // });
 
-app.use(expres.static(path.join));
 app.use(express.static(path.join(__dirname, "../public")));
 app.listen(1234, () => {
   console.log("listening on port 1234");
