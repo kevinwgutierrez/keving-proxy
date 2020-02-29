@@ -4,6 +4,11 @@ const app = express();
 const path = require("path");
 const axios = require("axios");
 
+app.get("/loaderio-d4219ab74ab532c7e1ac46361b86ed80/"),
+  (req, res) => {
+    res.sendFile("./loaderio-d4219ab74ab532c7e1ac46361b86ed80.txt");
+  };
+
 // get request to get all bookings by listing from the proxy
 app.get("/api/listings/:listing_id/bookings", (req, res) => {
   axios
@@ -89,6 +94,7 @@ app.post("/api/listings/:listing_id/add_booking", (req, res) => {
 //     });
 // });
 
+app.use(expres.static(path.join));
 app.use(express.static(path.join(__dirname, "../public")));
 app.listen(1234, () => {
   console.log("listening on port 1234");
